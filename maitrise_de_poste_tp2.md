@@ -1,5 +1,5 @@
 * Mastering Host 2
-    * Sujet 2 
+* Sujet 2 Débugger et désassembler des programmes compilés
 
 > install de "gdb" et "ghidra" sur ubuntu
 
@@ -31,11 +31,30 @@ End of assembler dump.
 Je pense que le "Hello, World!" est stocké dans "callq"
 Elle est affichée en clair dans le terminal
 
-> Je repasse sous windows pour le crack de Winrar et j'install "resource hacker"
+> Je repasse sous windows ( j'ai pas réussi sur ubuntu )pour le crack de Winrar et j'install "resource hacker"
 
 Sur resource hacker je fais:
 Open WinRAR.exe > dialog > REMINDER clique droit delete > fichier save as
 fini :)
 
+* Sujet 4 Analyse de boot
 
+> Pour ce sujet je travaille sur une vm ubuntu
 
+- Les 5 programmes les plus long à démarrer sont :
+    - apt-daily.service (~44s)
+    - plymounth-quit-wait.service (~19s)
+    - vboxadd.service (~9s)
+    - dev-sda1.service (~6s)
+    - dev-loop19.service (~3.8s)
+
+- Analyser les logs de boot du noyau (avec la commande dmesg) :
+    - cpu, bios physical ram, ramdisk
+    - linux version 5.3.0-59.63~18.04.1-generic
+    - 5 lignes qui me semblent importantes
+        - mount-cache hash table entries : ram physique réservée
+        - systemd : tout ce qui concerne le systeme
+        - os product : qui à produit l'os
+        - os release : l'identification du systeme ?
+        - os version : la version de l'os
+    - non le dernier log est "btrfs loaded"
