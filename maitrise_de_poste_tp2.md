@@ -42,11 +42,12 @@ fini :)
 > Pour ce sujet je travaille sur une vm ubuntu
 
 - Les 5 programmes les plus long à démarrer sont :
+    - apt-daily-upgrade.service (~1m23s)
     - apt-daily.service (~44s)
     - plymounth-quit-wait.service (~19s)
     - vboxadd.service (~9s)
     - dev-sda1.service (~6s)
-    - dev-loop19.service (~3.8s)
+
 
 - Analyser les logs de boot du noyau (avec la commande dmesg) :
     - cpu, bios physical ram, ramdisk
